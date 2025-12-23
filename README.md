@@ -6,7 +6,6 @@
 [![Vue 3](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vuedotjs)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-Ready-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel)](https://nav.flc.io)
 [![License](https://img.shields.io/github/license/flc1125/nav.flc.io?style=for-the-badge)](./LICENSE)
 
 </div>
