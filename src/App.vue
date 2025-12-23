@@ -64,7 +64,7 @@ onMounted(async () => {
         <SideNav :categories="navData.categories" />
 
         <!-- Header -->
-        <header class="mb-12 text-center space-y-8">
+        <header class="mb-12 text-center space-y-8 pt-20 md:pt-0">
           <div class="space-y-3">
             <h1 class="shimmer-title font-bold font-mono leading-relaxed" style="font-size: clamp(2rem, 8vw, 3rem);">{{ navData.title }}</h1>
             <p class="text-white/50 font-mono text-sm">
