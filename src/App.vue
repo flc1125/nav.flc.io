@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import SearchBox from './components/SearchBox.vue'
 import SideNav from './components/SideNav.vue'
 import BackgroundParticles from './components/BackgroundParticles.vue'
+import SpotlightCard from './components/SpotlightCard.vue'
 
 interface NavItem {
   title: string
@@ -28,7 +29,7 @@ onMounted(async () => {
     const response = await fetch('/data.json')
     navData.value = await response.json()
     if (navData.value && navData.value.title) {
-      document.title = navData.value.title
+      document.title = navData.value.title + ' - FLC 和他的导航'
     }
   } catch (e) {
     console.error('Failed to load nav data:', e)
@@ -51,9 +52,11 @@ onMounted(async () => {
 
         <!-- Header -->
         <header class="mb-12 text-center space-y-8">
-          <div>
-            <h1 class="text-4xl font-bold text-white mb-2">{{ navData.title }}</h1>
-            <p class="text-white/60">极简 · 现代 · 导航</p>
+          <div class="space-y-3">
+            <h1 class="shimmer-title text-5xl font-bold font-mono leading-relaxed">{{ navData.title }}</h1>
+            <p class="text-white/50 font-mono text-sm">
+              <span class="text-purple-400">while</span>(<span class="text-cyan-400">exploring</span>) { <span class="text-yellow-400">grow</span>(); }
+            </p>
           </div>
           
           <!-- Search Component -->
@@ -69,27 +72,11 @@ onMounted(async () => {
           >
             <h2 class="text-xl font-medium text-white/80 mb-6 ml-2">{{ category.name }}</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              <a 
-                v-for="item in category.items" 
+              <SpotlightCard
+                v-for="item in category.items"
                 :key="item.url"
-                :href="item.url"
-                target="_blank"
-                class="group block p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10"
-              >
-                <div class="flex items-center space-x-4">
-                  <div class="w-12 h-12 flex-shrink-0 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden">
-                    <img :src="item.icon" :alt="item.title" class="w-8 h-8 object-contain" />
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <h3 class="text-white font-medium truncate group-hover:text-purple-300 transition-colors">
-                      {{ item.title }}
-                    </h3>
-                    <p class="text-white/40 text-sm truncate">
-                      {{ item.desc }}
-                    </p>
-                  </div>
-                </div>
-              </a>
+                :item="item"
+              />
             </div>
           </section>
         </main>
@@ -107,3 +94,41 @@ onMounted(async () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.shimmer-title {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #e9d5ff 20%,
+    #c084fc 40%,
+    #a855f7 50%,
+    #c084fc 60%,
+    #e9d5ff 80%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 12s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 70% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+</style>
