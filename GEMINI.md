@@ -1,0 +1,87 @@
+# Project Context: nav.flc.io (FLC 和他的导航)
+
+## Project Overview
+
+**FLC 和他的导航** (Title: FLC和他的导航) is a personal navigation dashboard (similar to hao123 but modern/cool) built with **Vue 3** and **Vite**. It features a **Glassmorphism** (frosted glass) design aesthetic, powered by **Tailwind CSS v4**.
+
+The application is designed to be:
+*   **Minimalist & Modern:** Dark mode, gradients, blur effects.
+*   **Data-Driven:** Content is dynamically rendered from a simple JSON file, making it easy to manage without a backend.
+*   **Responsive:** Grid layout that adapts from mobile to large screens.
+
+## Tech Stack
+
+*   **Framework:** Vue 3 (Composition API + TypeScript)
+*   **Build Tool:** Vite
+*   **Styling:** Tailwind CSS v4 (using `@tailwindcss/postcss` and `@import "tailwindcss";`)
+*   **Language:** TypeScript
+*   **Package Manager:** npm
+
+## Key Files & Structure
+
+*   **`src/App.vue`**: The main entry component.
+    *   Fetches `data.json` on mount.
+    *   Renders the header, sidebar, and category grid.
+    *   Implements the glassmorphism card design using Tailwind utility classes (e.g., `backdrop-blur-md`, `bg-white/5`).
+*   **`src/components/SideNav.vue`**: [NEW] Fixed sidebar navigation.
+    *   Automatically tracks scroll position to highlight current category.
+    *   Smooth scrolling to categories.
+    *   Responsive (hidden on mobile).
+*   **`src/components/BackgroundParticles.vue`**: [NEW] Interactive particle background.
+    *   Canvas-based subtle animation with mouse repulsion effect.
+*   **`src/components/SearchBox.vue`**: [NEW] Enhanced search functionality.
+    *   Dropdown for selecting search engines (Google, Baidu, Bing, GitHub).
+    *   Displays engine icons (favicons) in dropdown and button.
+    *   Custom styled input with glass effect.
+*   **`public/data.json`**: The static database for the application.
+    *   Format: `{ title, description, categories: [ { name, items: [ { title, url, icon, desc } ] } ] }`
+    *   Used to configure all links displayed on the dashboard.
+*   **`src/style.css`**: Global styles.
+    *   Imports Tailwind CSS v4 via `@import "tailwindcss";`.
+    *   Sets basic `body` styles (background color `#0f172a`).
+*   **`postcss.config.js`**: PostCSS configuration using `@tailwindcss/postcss` plugin (required for Tailwind v4).
+*   **`vite.config.ts`**: Standard Vite configuration with Vue plugin.
+
+## Building and Running
+
+### Prerequisites
+*   Node.js installed.
+
+### Commands
+
+*   **Start Development Server:**
+    ```bash
+    npm run dev
+    ```
+    Starts the Vite dev server (usually at `http://localhost:5173`).
+
+*   **Build for Production:**
+    ```bash
+    npm run build
+    ```
+    Runs `vue-tsc` for type checking and builds the static assets to `dist/`.
+
+*   **Preview Production Build:**
+    ```bash
+    npm run preview
+    ```
+
+## Development Conventions
+
+*   **Styling:** Use Tailwind CSS utility classes directly in templates. Avoid custom CSS in `<style>` blocks unless necessary.
+*   **Data Management:** To add/remove links, edit `public/data.json`. No code changes are required for content updates.
+*   **Icons:** Currently using direct URLs (Favicons) in `data.json`.
+*   **Responsiveness:** Use Tailwind's responsive prefixes (`sm:`, `lg:`, `xl:`) to control grid columns.
+
+## Recent Changes & Notes
+
+*   **Tailwind v4 Upgrade:** The project was recently configured to use Tailwind CSS v4.
+    *   `tailwind.config.js` was removed (not needed for v4).
+    *   `postcss.config.js` uses `@tailwindcss/postcss`.
+    *   CSS uses `@import "tailwindcss";`.
+*   **Vue Style Block Removed:** The `<style>` block in `App.vue` was removed to prevent PostCSS parsing errors during the upgrade. Global styles are now in `src/style.css`.
+*   **UI/UX Enhancements (Dec 2025):**
+    *   **Sidebar Navigation**: Added left-side navigation for quick access to categories.
+    *   **Particle Background**: Added a custom canvas particle effect for better visual depth.
+    *   **Search Engine**: Added dropdown with icon support and fixed GitHub icon visibility (inverted color).
+    *   **Data Enrichment**: Expanded `data.json` with more categories and items.

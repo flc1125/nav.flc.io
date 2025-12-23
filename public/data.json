@@ -1,0 +1,509 @@
+{
+  "title": "FLC和他的导航",
+  "description": "极简主义个人导航",
+  "categories": [
+    {
+      "name": "常用推荐",
+      "items": [
+        {
+          "title": "GitHub",
+          "url": "https://github.com",
+          "icon": "https://github.com/favicon.ico",
+          "desc": "开源代码托管平台"
+        },
+        {
+          "title": "ChatGPT",
+          "url": "https://chat.openai.com",
+          "icon": "https://chatgpt.com/favicon.ico",
+          "desc": "AI 助手"
+        },
+        {
+          "title": "Google",
+          "url": "https://google.com",
+          "icon": "https://google.com/favicon.ico",
+          "desc": "全球最大搜索引擎"
+        },
+        {
+          "title": "Bilibili",
+          "url": "https://www.bilibili.com",
+          "icon": "https://www.bilibili.com/favicon.ico",
+          "desc": "国内知名视频弹幕网站"
+        },
+        {
+          "title": "X (Twitter)",
+          "url": "https://twitter.com",
+          "icon": "https://abs.twimg.com/favicons/twitter.ico",
+          "desc": "全球社交网络"
+        },
+        {
+          "title": "Instagram",
+          "url": "https://www.instagram.com",
+          "icon": "https://www.instagram.com/favicon.ico",
+          "desc": "图片分享社区"
+        },
+        {
+          "title": "LinkedIn",
+          "url": "https://www.linkedin.com",
+          "icon": "https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca",
+          "desc": "职场社交平台"
+        }
+      ]
+    },
+    {
+      "name": "开发工具",
+      "items": [
+        {
+          "title": "StackOverflow",
+          "url": "https://stackoverflow.com",
+          "icon": "https://stackoverflow.com/favicon.ico",
+          "desc": "程序猿的问答社区"
+        },
+        {
+          "title": "V2EX",
+          "url": "https://v2ex.com",
+          "icon": "https://v2ex.com/favicon.ico",
+          "desc": "创意工作者社区"
+        },
+        {
+          "title": "DevDocs",
+          "url": "https://devdocs.io",
+          "icon": "https://devdocs.io/favicon.ico",
+          "desc": "全能开发文档库"
+        },
+        {
+          "title": "Carbon",
+          "url": "https://carbon.now.sh",
+          "icon": "https://carbon.now.sh/favicon.ico",
+          "desc": "代码图片生成工具"
+        },
+        {
+          "title": "Postman",
+          "url": "https://www.postman.com",
+          "icon": "https://www.postman.com/favicon.ico",
+          "desc": "API 调试工具"
+        },
+        {
+          "title": "VS Code (Web)",
+          "url": "https://vscode.dev",
+          "icon": "https://vscode.dev/static/favicon.ico",
+          "desc": "在线代码编辑器"
+        },
+        {
+          "title": "Docker Hub",
+          "url": "https://hub.docker.com",
+          "icon": "https://hub.docker.com/favicon.ico",
+          "desc": "容器镜像仓库"
+        }
+      ]
+    },
+    {
+      "name": "设计灵感",
+      "items": [
+        {
+          "title": "Dribbble",
+          "url": "https://dribbble.com",
+          "icon": "https://dribbble.com/favicon.ico",
+          "desc": "设计师灵感社区"
+        },
+        {
+          "title": "Behance",
+          "url": "https://www.behance.net",
+          "icon": "https://www.behance.net/favicon.ico",
+          "desc": "Adobe 旗下设计展示平台"
+        },
+        {
+          "title": "Pinterest",
+          "url": "https://www.pinterest.com",
+          "icon": "https://www.pinterest.com/favicon.ico",
+          "desc": "图片灵感搜集"
+        },
+        {
+          "title": "Unsplash",
+          "url": "https://unsplash.com",
+          "icon": "https://unsplash.com/favicon.ico",
+          "desc": "免费高质量图片库"
+        },
+        {
+          "title": "Coolors",
+          "url": "https://coolors.co",
+          "icon": "https://coolors.co/assets/img/favicon.png",
+          "desc": "超快配色生成器"
+        },
+        {
+          "title": "Awwwards",
+          "url": "https://www.awwwards.com",
+          "icon": "https://www.awwwards.com/favicon.ico",
+          "desc": "以及网页设计奖项"
+        }
+      ]
+    },
+    {
+      "name": "前沿资讯",
+      "items": [
+        {
+          "title": "Hacker News",
+          "url": "https://news.ycombinator.com",
+          "icon": "https://news.ycombinator.com/favicon.ico",
+          "desc": "高质量科技新闻"
+        },
+        {
+          "title": "Product Hunt",
+          "url": "https://www.producthunt.com",
+          "icon": "https://www.producthunt.com/favicon.ico",
+          "desc": "新产品发现平台"
+        },
+        {
+          "title": "36Kr",
+          "url": "https://36kr.com",
+          "icon": "https://36kr.com/favicon.ico",
+          "desc": "国内科技创投媒体"
+        },
+        {
+          "title": "Juejin (掘金)",
+          "url": "https://juejin.cn",
+          "icon": "https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/static/favicons/favicon-32x32.png",
+          "desc": "开发者技术社区"
+        },
+        {
+          "title": "InfoQ",
+          "url": "https://www.infoq.cn",
+          "icon": "https://static001.infoq.cn/static/infoq/img/favicon.ico",
+          "desc": "促进软件开发领域知识与创新"
+        },
+        {
+          "title": "Medium",
+          "url": "https://medium.com",
+          "icon": "https://medium.com/favicon.ico",
+          "desc": "优质英文阅读社区"
+        }
+      ]
+    },
+    {
+      "name": "前端框架",
+      "items": [
+        {
+          "title": "Vue.js",
+          "url": "https://vuejs.org",
+          "icon": "https://vuejs.org/images/logo.png",
+          "desc": "渐进式 JavaScript 框架"
+        },
+        {
+          "title": "React",
+          "url": "https://react.dev",
+          "icon": "https://react.dev/favicon.ico",
+          "desc": "构建 Web 和原生交互界面的库"
+        },
+        {
+          "title": "Tailwind CSS",
+          "url": "https://tailwindcss.com",
+          "icon": "https://tailwindcss.com/favicon.ico",
+          "desc": "原子化 CSS 框架"
+        },
+        {
+          "title": "Next.js",
+          "url": "https://nextjs.org",
+          "icon": "https://nextjs.org/favicon.ico",
+          "desc": "React 应用程序框架"
+        },
+        {
+          "title": "Nuxt",
+          "url": "https://nuxt.com",
+          "icon": "https://nuxt.com/icon.png",
+          "desc": "Vue.js 通用应用框架"
+        },
+        {
+          "title": "Svelte",
+          "url": "https://svelte.dev",
+          "icon": "https://svelte.dev/favicon.png",
+          "desc": "控制论增强的 Web 应用"
+        }
+      ]
+    },
+    {
+      "name": "云服务",
+      "items": [
+        {
+          "title": "Vercel",
+          "url": "https://vercel.com",
+          "icon": "https://vercel.com/favicon.ico",
+          "desc": "前端部署的最佳选择"
+        },
+        {
+          "title": "Cloudflare",
+          "url": "https://www.cloudflare.com",
+          "icon": "https://www.cloudflare.com/favicon.ico",
+          "desc": "CDN 与网络安全"
+        },
+        {
+          "title": "AWS",
+          "url": "https://aws.amazon.com",
+          "icon": "https://a0.awsstatic.com/libra-css/images/site/fav/favicon.ico",
+          "desc": "亚马逊云计算服务"
+        },
+        {
+          "title": "DigitalOcean",
+          "url": "https://www.digitalocean.com",
+          "icon": "https://www.digitalocean.com/favicon.ico",
+          "desc": "开发者友好的云主机"
+        },
+        {
+          "title": "Heroku",
+          "url": "https://www.heroku.com",
+          "icon": "https://www.heroku.com/favicon.ico",
+          "desc": "PaaS 云平台"
+        },
+        {
+          "title": "Azure",
+          "url": "https://azure.microsoft.com",
+          "icon": "https://azure.microsoft.com/favicon.ico",
+          "desc": "微软云服务平台"
+        }
+      ]
+    },
+    {
+      "name": "学习平台",
+      "items": [
+        {
+          "title": "Coursera",
+          "url": "https://www.coursera.org",
+          "icon": "https://d3njjcbhbojbot.cloudfront.net/web/images/favicon-v2-16x16.png",
+          "desc": "在线课程学习"
+        },
+        {
+          "title": "Udemy",
+          "url": "https://www.udemy.com",
+          "icon": "https://www.udemy.com/staticx/udemy/images/v8/favicon-16x16.png",
+          "desc": "技能学习市场"
+        },
+        {
+          "title": "freeCodeCamp",
+          "url": "https://www.freecodecamp.org",
+          "icon": "https://www.freecodecamp.org/favicon.ico",
+          "desc": "免费代码学习社区"
+        },
+        {
+          "title": "Pluralsight",
+          "url": "https://www.pluralsight.com",
+          "icon": "https://www.pluralsight.com/favicon.ico",
+          "desc": "IT 技能学习"
+        },
+        {
+          "title": "Khan Academy",
+          "url": "https://www.khanacademy.org",
+          "icon": "https://www.khanacademy.org/favicon.ico",
+          "desc": "免费世界级教育"
+        },
+        {
+          "title": "LeetCode",
+          "url": "https://leetcode.com",
+          "icon": "https://leetcode.com/favicon.ico",
+          "desc": "全球极客挚爱的技术成长平台"
+        }
+      ]
+    },
+    {
+      "name": "实用工具",
+      "items": [
+        {
+          "title": "RegExr",
+          "url": "https://regexr.com",
+          "icon": "https://regexr.com/favicon.ico",
+          "desc": "正则表达式测试"
+        },
+        {
+          "title": "JSON Formatter",
+          "url": "https://jsonformatter.curiousconcept.com",
+          "icon": "https://jsonformatter.curiousconcept.com/favicon.ico",
+          "desc": "JSON 格式化验证"
+        },
+        {
+          "title": "TinyPNG",
+          "url": "https://tinypng.com",
+          "icon": "https://tinypng.com/images/favicon.ico",
+          "desc": "智能图片压缩"
+        },
+        {
+          "title": "Can I Use",
+          "url": "https://caniuse.com",
+          "icon": "https://caniuse.com/img/favicon-128.png",
+          "desc": "浏览器兼容性查询"
+        },
+        {
+          "title": "SvgOmg",
+          "url": "https://jakearchibald.github.io/svgomg",
+          "icon": "https://jakearchibald.github.io/svgomg/favicon.ico",
+          "desc": "SVG 在线压缩"
+        },
+        {
+          "title": "Transform.tools",
+          "url": "https://transform.tools",
+          "icon": "https://transform.tools/static/favicon.png",
+          "desc": "代码转换工具"
+        }
+      ]
+    },
+    {
+      "name": "独立博客",
+      "items": [
+        {
+          "title": "阮一峰的日志",
+          "url": "https://www.ruanyifeng.com/blog",
+          "icon": "https://www.ruanyifeng.com/favicon.ico",
+          "desc": "IT 技术与观点"
+        },
+        {
+          "title": "Overreacted",
+          "url": "https://overreacted.io",
+          "icon": "https://overreacted.io/favicon.ico",
+          "desc": "Dan Abramov 的博客"
+        },
+        {
+          "title": "CSS-Tricks",
+          "url": "https://css-tricks.com",
+          "icon": "https://css-tricks.com/favicon.ico",
+          "desc": "前端 CSS 技巧"
+        },
+        {
+          "title": "Paul Graham",
+          "url": "http://www.paulgraham.com",
+          "icon": "http://www.paulgraham.com/favicon.ico",
+          "desc": "硅谷创业教父随笔"
+        }
+      ]
+    },
+    {
+      "name": "团队协作",
+      "items": [
+        {
+          "title": "Notion",
+          "url": "https://www.notion.so",
+          "icon": "https://www.notion.so/images/favicon.ico",
+          "desc": "多合一工作空间"
+        },
+        {
+          "title": "Figma",
+          "url": "https://www.figma.com",
+          "icon": "https://static.figma.com/app/icon/1/favicon.png",
+          "desc": "在线界面设计协作"
+        },
+        {
+          "title": "Slack",
+          "url": "https://slack.com",
+          "icon": "https://slack.com/favicon.ico",
+          "desc": "企业级即时通讯"
+        },
+        {
+          "title": "Trello",
+          "url": "https://trello.com",
+          "icon": "https://trello.com/favicon.ico",
+          "desc": "看板式项目管理"
+        },
+        {
+          "title": "Miro",
+          "url": "https://miro.com",
+          "icon": "https://miro.com/favicon.ico",
+          "desc": "在线协作白板"
+        }
+      ]
+    },
+    {
+      "name": "视频娱乐",
+      "items": [
+        {
+          "title": "YouTube",
+          "url": "https://www.youtube.com",
+          "icon": "https://www.youtube.com/favicon.ico",
+          "desc": "全球最大视频网"
+        },
+        {
+          "title": "Netflix",
+          "url": "https://www.netflix.com",
+          "icon": "https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico",
+          "desc": "流媒体影视平台"
+        },
+        {
+          "title": "Twitch",
+          "url": "https://www.twitch.tv",
+          "icon": "https://www.twitch.tv/favicon.ico",
+          "desc": "游戏直播平台"
+        },
+        {
+          "title": "Disney+",
+          "url": "https://www.disneyplus.com",
+          "icon": "https://www.disneyplus.com/favicon.ico",
+          "desc": "迪士尼流媒体"
+        },
+        {
+          "title": "Spotify",
+          "url": "https://www.spotify.com",
+          "icon": "https://www.spotify.com/favicon.ico",
+          "desc": "正版流媒体音乐服务"
+        }
+      ]
+    },
+    {
+      "name": "生活服务",
+      "items": [
+        {
+          "title": "大众点评",
+          "url": "https://www.dianping.com",
+          "icon": "https://www.dianping.com/favicon.ico",
+          "desc": "美食生活指南"
+        },
+        {
+          "title": "下厨房",
+          "url": "https://www.xiachufang.com",
+          "icon": "https://www.xiachufang.com/favicon.ico",
+          "desc": "菜谱与美食社区"
+        },
+        {
+          "title": "Meituan (美团)",
+          "url": "https://www.meituan.com",
+          "icon": "https://www.meituan.com/favicon.ico",
+          "desc": "吃喝玩乐一站式"
+        },
+        {
+          "title": "Taobao (淘宝)",
+          "url": "https://www.taobao.com",
+          "icon": "https://www.taobao.com/favicon.ico",
+          "desc": "亚洲最大网购零售平台"
+        },
+        {
+          "title": "JD (京东)",
+          "url": "https://www.jd.com",
+          "icon": "https://www.jd.com/favicon.ico",
+          "desc": "专业综合网上购物商城"
+        }
+      ]
+    },
+    {
+      "name": "阅读",
+      "items": [
+        {
+          "title": "豆瓣读书",
+          "url": "https://book.douban.com",
+          "icon": "https://img3.doubanio.com/favicon.ico",
+          "desc": "记录你的阅读生活"
+        },
+        {
+          "title": "微信读书",
+          "url": "https://weread.qq.com",
+          "icon": "https://weread.qq.com/favicon.ico",
+          "desc": "正版书籍阅读"
+        },
+        {
+          "title": "GoodReads",
+          "url": "https://www.goodreads.com",
+          "icon": "https://www.goodreads.com/favicon.ico",
+          "desc": "全球最大书友社区"
+        },
+        {
+          "title": "Kindle Cloud Reader",
+          "url": "https://read.amazon.com",
+          "icon": "https://read.amazon.com/favicon.ico",
+          "desc": "亚马逊云阅读器"
+        }
+      ]
+    }
+  ]
+}
