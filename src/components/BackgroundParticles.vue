@@ -2,128 +2,70 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
-let ctx: CanvasRenderingContext2D | null = null
-let animationFrameId: number
-let particles: Particle[] = []
+let worker: Worker | null = null
 
-interface Particle {
-  x: number
-  y: number
-  vx: number
-  vy: number
-  size: number
-}
-
-// Configuration
-const particleCount = 60
-const connectionDistance = 150
-const mouseDistance = 200
-
-let mouseX = -1000
-let mouseY = -1000
-
-const initParticles = (width: number, height: number) => {
-  particles = []
-  // Adjust particle count based on screen size
-  const area = width * height
-  const count = Math.floor(area / 15000) // Responsive count
-  
-  for (let i = 0; i < count; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      size: Math.random() * 2 + 1.5 // Slightly larger: 1.5-3.5
+const handleResize = () => {
+  if (worker && canvasRef.value) {
+    const dpr = window.devicePixelRatio || 1
+    const width = window.innerWidth
+    const height = window.innerHeight
+    
+    // We don't resize the canvas DOM element here because it's transferred
+    // But we might need to update style if it wasn't valid css
+    // Actually, we can't touch .width/.height of a transferred canvas
+    
+    worker.postMessage({
+      type: 'resize',
+      payload: {
+        width: width * dpr,
+        height: height * dpr,
+        dpr
+      }
     })
   }
 }
 
-const draw = () => {
-  if (!ctx || !canvasRef.value) return
-  const width = canvasRef.value.width / (window.devicePixelRatio || 1)
-  const height = canvasRef.value.height / (window.devicePixelRatio || 1)
-
-  ctx.clearRect(0, 0, width, height)
-  
-  // Update and draw particles
-  particles.forEach(p => {
-    // Movement
-    p.x += p.vx
-    p.y += p.vy
-
-    // Mouse repulsion
-    const dx = mouseX - p.x
-    const dy = mouseY - p.y
-    const distance = Math.sqrt(dx * dx + dy * dy)
-    
-    if (distance < mouseDistance) {
-      const forceDirectionX = dx / distance
-      const forceDirectionY = dy / distance
-      const force = (mouseDistance - distance) / mouseDistance
-      const repulsionStrength = 0.05
-      
-      p.vx -= forceDirectionX * force * repulsionStrength
-      p.vy -= forceDirectionY * force * repulsionStrength
-    }
-
-    // Bounce off edges
-    if (p.x < 0 || p.x > width) p.vx *= -1
-    if (p.y < 0 || p.y > height) p.vy *= -1
-
-    // Draw particle
-    ctx!.beginPath()
-    ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-    ctx!.fillStyle = 'rgba(255, 255, 255, 0.25)' // Reduced opacity (was 0.4)
-    ctx!.fill()
-  })
-
-  // Draw connections
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x
-      const dy = particles[i].y - particles[j].y
-      const distance = Math.sqrt(dx * dx + dy * dy)
-
-      if (distance < connectionDistance) {
-        ctx.beginPath()
-        ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - distance / connectionDistance)})` // Reduced opacity (was 0.25)
-        ctx.lineWidth = 1
-        ctx.moveTo(particles[i].x, particles[i].y)
-        ctx.lineTo(particles[j].x, particles[j].y)
-        ctx.stroke()
-      }
-    }
-  }
-
-  animationFrameId = requestAnimationFrame(draw)
-}
-
-const handleResize = () => {
-  if (canvasRef.value && ctx) {
-    const dpr = window.devicePixelRatio || 1
-    canvasRef.value.width = window.innerWidth * dpr
-    canvasRef.value.height = window.innerHeight * dpr
-    canvasRef.value.style.width = `${window.innerWidth}px`
-    canvasRef.value.style.height = `${window.innerHeight}px`
-    
-    ctx.scale(dpr, dpr)
-    
-    initParticles(window.innerWidth, window.innerHeight)
-  }
-}
-
 const handleMouseMove = (e: MouseEvent) => {
-  // Mouse coordinates need to be relative to the viewport, which they are
-  mouseX = e.clientX
-  mouseY = e.clientY
+  if (worker) {
+    worker.postMessage({
+      type: 'mousemove',
+      payload: {
+        x: e.clientX,
+        y: e.clientY
+      }
+    })
+  }
 }
 
 onMounted(() => {
   if (canvasRef.value) {
-    ctx = canvasRef.value.getContext('2d')
-    handleResize() // Initialize size and particles
-    draw()
+    // 1. Create Worker
+    worker = new Worker(new URL('../workers/particle.worker.ts', import.meta.url), {
+      type: 'module'
+    })
+
+    // 2. Setup Canvas
+    const canvas = canvasRef.value
+    // Set initial size
+    const dpr = window.devicePixelRatio || 1
+    canvas.width = window.innerWidth * dpr
+    canvas.height = window.innerHeight * dpr
+    canvas.style.width = `${window.innerWidth}px`
+    canvas.style.height = `${window.innerHeight}px`
+
+    // 3. Transfer Control
+    const offscreen = canvas.transferControlToOffscreen()
+
+    // 4. Init Worker
+    worker.postMessage({
+      type: 'init',
+      payload: {
+        canvas: offscreen,
+        width: window.innerWidth * dpr, // Send physical pixels
+        height: window.innerHeight * dpr,
+        dpr
+      }
+    }, [offscreen]) // Transfer the offscreen canvas
 
     window.addEventListener('resize', handleResize)
     window.addEventListener('mousemove', handleMouseMove)
@@ -133,7 +75,9 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', handleResize)
   window.removeEventListener('mousemove', handleMouseMove)
-  cancelAnimationFrame(animationFrameId)
+  if (worker) {
+    worker.terminate()
+  }
 })
 </script>
 
