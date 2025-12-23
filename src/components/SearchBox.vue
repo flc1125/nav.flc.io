@@ -48,7 +48,7 @@ const selectEngine = (engine: typeof engines[0]) => {
     <!-- Dropdown Menu (放在 search-wrapper 外面，不受 overflow-hidden 影响) -->
     <div 
       v-if="isDropdownOpen"
-      class="absolute top-full left-0 mt-2 w-48 py-2 bg-purple-950/80 border border-purple-500/20 rounded-xl backdrop-blur-xl shadow-2xl overflow-hidden origin-top-left z-50"
+      class="absolute top-full left-0 mt-2 w-48 py-2 bg-white/5 border border-white/10 rounded-xl backdrop-blur-xl shadow-2xl overflow-hidden origin-top-left z-50"
     >
       <button
         v-for="engine in engines"
