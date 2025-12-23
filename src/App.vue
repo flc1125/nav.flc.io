@@ -29,7 +29,7 @@ onMounted(async () => {
     const response = await fetch('/data.json')
     navData.value = await response.json()
     if (navData.value && navData.value.title) {
-      document.title = navData.value.title
+      document.title = navData.value.title + ' - FLC 和他的导航'
     }
   } catch (e) {
     console.error('Failed to load nav data:', e)
