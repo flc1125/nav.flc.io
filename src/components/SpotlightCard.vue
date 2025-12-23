@@ -45,7 +45,7 @@ function handleMouseLeave() {
   >
     <!-- Border glow layer (底层边框发光) -->
     <div
-      class="absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      class="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       :style="{
         background: isHovering
           ? `radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(168, 85, 247, 0.4), transparent 40%)`
