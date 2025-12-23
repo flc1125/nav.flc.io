@@ -2,6 +2,10 @@
 
 A minimalist, modern personal navigation dashboard built with Vue 3 + Vite + Tailwind CSS v4.
 
+## 🤖 Vibe Coding
+
+This project is fully realized through **Vibe Coding**, primarily utilizing **Gemini**, **Antigravity**, and **Claude** as core development assistants, with **virtually zero manual code writing**.
+
 ## ✨ Features
 
 - **Minimalist Design**: Glassmorphism style, dark mode.
