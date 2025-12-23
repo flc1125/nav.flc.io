@@ -23,16 +23,20 @@ The application is designed to be:
     *   Fetches `data.json` on mount.
     *   Renders the header, sidebar, and category grid.
     *   Implements the glassmorphism card design using Tailwind utility classes (e.g., `backdrop-blur-md`, `bg-white/5`).
-*   **`src/components/SideNav.vue`**: [NEW] Fixed sidebar navigation.
-    *   Automatically tracks scroll position to highlight current category.
-    *   Smooth scrolling to categories.
-    *   Responsive (hidden on mobile).
+*   **`src/components/SideNav.vue`**: Sidebar navigation with responsive behavior.
+    *   **Desktop (≥1536px)**: Fixed sidebar on the left, tracks scroll position to highlight current category.
+    *   **Mobile (<1536px)**: Hamburger menu button (top-right) that opens a drawer navigation.
+    *   Smooth scrolling to categories on click.
+    *   Drawer has purple glassmorphism effect (`bg-purple-900/30 backdrop-blur-xl`).
 *   **`src/components/BackgroundParticles.vue`**: [NEW] Interactive particle background.
     *   Canvas-based subtle animation with mouse repulsion effect.
-*   **`src/components/SearchBox.vue`**: [NEW] Enhanced search functionality.
+*   **`src/components/SearchBox.vue`**: Enhanced search functionality.
     *   Dropdown for selecting search engines (Google, Baidu, Bing, GitHub).
     *   Displays engine icons (favicons) in dropdown and button.
     *   Custom styled input with glass effect.
+*   **`src/components/SpotlightCard.vue`**: Navigation card component.
+    *   Renders individual link items with glassmorphism styling.
+    *   Hover spotlight effect following mouse movement.
 *   **`public/data.json`**: The static database for the application.
     *   Format: `{ title, description, categories: [ { name, items: [ { title, url, icon, desc } ] } ] }`
     *   Used to configure all links displayed on the dashboard.
@@ -85,3 +89,10 @@ The application is designed to be:
     *   **Particle Background**: Added a custom canvas particle effect for better visual depth.
     *   **Search Engine**: Added dropdown with icon support and fixed GitHub icon visibility (inverted color).
     *   **Data Enrichment**: Expanded `data.json` with more categories and items.
+*   **Responsive Optimizations (Dec 23, 2025):**
+    *   **Fluid Typography**: Main title uses CSS `clamp(2rem, 8vw, 3rem)` for responsive font sizing.
+    *   **Hamburger Menu Navigation**: Mobile drawer navigation replaces fixed sidebar below 1536px.
+        *   Breakpoint: `2xl` (1536px) chosen to prevent content overlap on medium screens.
+        *   Drawer slides in from left with purple glassmorphism (`bg-purple-900/30`).
+        *   Includes backdrop overlay that closes on click.
+

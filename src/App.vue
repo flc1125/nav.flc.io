@@ -53,7 +53,7 @@ onMounted(async () => {
         <!-- Header -->
         <header class="mb-12 text-center space-y-8">
           <div class="space-y-3">
-            <h1 class="shimmer-title text-5xl font-bold font-mono leading-relaxed">{{ navData.title }}</h1>
+            <h1 class="shimmer-title font-bold font-mono leading-relaxed" style="font-size: clamp(2rem, 8vw, 3rem);">{{ navData.title }}</h1>
             <p class="text-white/50 font-mono text-sm">
               <span class="text-purple-400">while</span>(<span class="text-cyan-400">exploring</span>) { <span class="text-yellow-400">grow</span>(); }
             </p>
