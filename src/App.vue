@@ -53,7 +53,7 @@ onMounted(async () => {
         <!-- Header -->
         <header class="mb-12 text-center space-y-8">
           <div class="space-y-3">
-            <h1 class="text-5xl font-bold font-mono leading-relaxed bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">{{ navData.title }}</h1>
+            <h1 class="shimmer-title text-5xl font-bold font-mono leading-relaxed">{{ navData.title }}</h1>
             <p class="text-white/50 font-mono text-sm">
               <span class="text-purple-400">while</span>(<span class="text-cyan-400">exploring</span>) { <span class="text-yellow-400">grow</span>(); }
             </p>
@@ -94,3 +94,41 @@ onMounted(async () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.shimmer-title {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #e9d5ff 20%,
+    #c084fc 40%,
+    #a855f7 50%,
+    #c084fc 60%,
+    #e9d5ff 80%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 12s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 70% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+</style>
