@@ -52,9 +52,9 @@ onMounted(async () => {
 
         <!-- Header -->
         <header class="mb-12 text-center space-y-8">
-          <div>
-            <h1 class="text-4xl font-bold text-white mb-2">{{ navData.title }}</h1>
-            <p class="text-white/70 font-mono text-sm inline-block px-4 py-2 bg-white/5 rounded-lg border border-white/10">
+          <div class="space-y-3">
+            <h1 class="text-5xl font-bold font-mono leading-relaxed bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">{{ navData.title }}</h1>
+            <p class="text-white/50 font-mono text-sm">
               <span class="text-purple-400">while</span>(<span class="text-cyan-400">exploring</span>) { <span class="text-yellow-400">grow</span>(); }
             </p>
           </div>
