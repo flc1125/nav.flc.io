@@ -151,7 +151,7 @@ defineExpose({ toggleDrawer })
     <Transition name="slide">
       <nav
         v-if="isDrawerOpen"
-        class="fixed left-0 top-0 bottom-0 w-64 bg-slate-900/95 backdrop-blur-xl border-r border-white/10 z-[58] overflow-y-auto"
+        class="fixed left-0 top-0 bottom-0 w-64 bg-purple-900/30 backdrop-blur-xl border-r border-white/10 z-[58] overflow-y-auto"
       >
         <div class="p-6 space-y-2">
           <h2 class="text-white/50 text-xs font-mono uppercase tracking-wider mb-4">导航</h2>
