@@ -46,35 +46,44 @@ const selectEngine = (engine: typeof engines[0]) => {
     ></div>
 
     <!-- Dropdown Menu (放在 search-wrapper 外面，不受 overflow-hidden 影响) -->
-    <div 
-      v-if="isDropdownOpen"
-      class="absolute top-full left-0 mt-2 w-48 py-2 bg-white/5 border border-white/10 rounded-xl backdrop-blur-xl shadow-2xl overflow-hidden origin-top-left z-50"
+    <Transition
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="opacity-0 scale-95 -translate-y-1"
+      enter-to-class="opacity-100 scale-100 translate-y-0"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="opacity-100 scale-100 translate-y-0"
+      leave-to-class="opacity-0 scale-95 -translate-y-1"
     >
-      <button
-        v-for="engine in engines"
-        :key="engine.name"
-        @click="selectEngine(engine)"
-        class="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 hover:text-white transition-colors flex items-center gap-3 group"
-        :class="{ 'text-purple-400 bg-white/5': currentEngine.name === engine.name }"
+      <div 
+        v-if="isDropdownOpen"
+        class="absolute top-full left-0 mt-2 w-48 py-2 bg-white/5 border border-white/10 rounded-xl backdrop-blur-xl shadow-2xl overflow-hidden origin-top-left z-50"
       >
-        <img 
-          :src="engine.icon" 
-          :alt="engine.name" 
-          class="w-5 h-5 object-contain opacity-70 group-hover:opacity-100" 
-          :class="{ 'invert': engine.name === 'GitHub' }"
-        />
-        <span class="flex-1">{{ engine.name }}</span>
-        <svg 
-          v-if="currentEngine.name === engine.name"
-          xmlns="http://www.w3.org/2000/svg" 
-          class="w-4 h-4 text-purple-400" 
-          viewBox="0 0 20 20" 
-          fill="currentColor"
+        <button
+          v-for="engine in engines"
+          :key="engine.name"
+          @click="selectEngine(engine)"
+          class="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 hover:text-white transition-colors flex items-center gap-3 group"
+          :class="{ 'text-purple-400 bg-white/5': currentEngine.name === engine.name }"
         >
-          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-        </svg>
-      </button>
-    </div>
+          <img 
+            :src="engine.icon" 
+            :alt="engine.name" 
+            class="w-5 h-5 object-contain opacity-70 group-hover:opacity-100" 
+            :class="{ 'invert': engine.name === 'GitHub' }"
+          />
+          <span class="flex-1">{{ engine.name }}</span>
+          <svg 
+            v-if="currentEngine.name === engine.name"
+            xmlns="http://www.w3.org/2000/svg" 
+            class="w-4 h-4 text-purple-400" 
+            viewBox="0 0 20 20" 
+            fill="currentColor"
+          >
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </Transition>
 
     <!-- Search Wrapper with Spotlight Effect -->
     <div 
