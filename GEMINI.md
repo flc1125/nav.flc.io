@@ -17,6 +17,19 @@ The application is designed to be:
 *   **Language:** TypeScript
 *   **Package Manager:** npm
 
+## Color Palette (主色系)
+
+| 用途 | Tailwind / HEX |
+|------|----------------|
+| **背景基色** | `slate-900` / `#0f172a` |
+| **渐变背景** | `from-slate-900 via-purple-900 to-slate-900` |
+| **主题色** | `purple-500` / `rgba(168, 85, 247)` |
+| **卡片背景** | `bg-white/5` (5% 白色) |
+| **边框** | `border-white/10` |
+| **发光效果** | `rgba(168, 85, 247, 0.15~0.3)` |
+| **文字强调** | `purple-300`, `purple-400` |
+| **辅助色** | `cyan-400`, `yellow-400` (代码高亮) |
+
 ## Key Files & Structure
 
 *   **`src/App.vue`**: The main entry component.
@@ -28,7 +41,7 @@ The application is designed to be:
     *   **Mobile (<1536px)**: Hamburger menu button (top-right) that opens a drawer navigation.
     *   Smooth scrolling to categories on click.
     *   Drawer has purple glassmorphism effect (`bg-purple-900/30 backdrop-blur-xl`).
-*   **`src/components/BackgroundParticles.vue`**: [NEW] Interactive particle background.
+*   **`src/components/BackgroundParticles.vue`**: Interactive particle background.
     *   Canvas-based subtle animation with mouse repulsion effect.
 *   **`src/components/SearchBox.vue`**: Enhanced search functionality.
     *   Dropdown for selecting search engines (Google, Baidu, Bing, GitHub).
@@ -36,7 +49,10 @@ The application is designed to be:
     *   Custom styled input with glass effect.
 *   **`src/components/SpotlightCard.vue`**: Navigation card component.
     *   Renders individual link items with glassmorphism styling.
-    *   Hover spotlight effect following mouse movement.
+    *   Hover spotlight effect following mouse movement:
+        *   Inner glow: `radial-gradient` overlay following `--mouse-x`, `--mouse-y` CSS variables.
+        *   Border glow: `::after` pseudo-element with `rgba(168, 85, 247, 0.15)` gradient.
+        *   Shadow glow: `box-shadow: 0 10px 40px -10px rgba(168, 85, 247, 0.3)` on hover.
 *   **`public/data.json`**: The static database for the application.
     *   Format: `{ title, description, categories: [ { name, items: [ { title, url, icon, desc } ] } ] }`
     *   Used to configure all links displayed on the dashboard.
