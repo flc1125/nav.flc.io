@@ -6,7 +6,6 @@
 
 <br />
 <br />
-<br />
 
 [![Vibe Coding](https://img.shields.io/badge/Vibe-Coding-FF4081?style=for-the-badge)](https://github.com/flc1125/nav.flc.io)
 [![Vue 3](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=for-the-badge&logo=vuedotjs)](https://vuejs.org/)
