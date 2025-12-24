@@ -124,6 +124,20 @@ interface NavData {
 *   **引入方式**: 在 `src/style.css` 中使用 `@import "tailwindcss";`。
 *   **自定义配置**: 如果需要自定义主题，直接在 CSS 文件中使用 `@theme` 指令（v4 新特性）。
 
+### 主色系配色表 (Color Palette)
+
+| 用途 | Tailwind / HEX | 说明 |
+|------|----------------|------|
+| **背景基色** | `slate-900` / `#0f172a` | 页面底层背景 |
+| **渐变背景** | `from-slate-900 via-purple-900 to-slate-900` | 固定渐变层 |
+| **主题色** | `purple-500` / `rgba(168, 85, 247)` | 边框发光、阴影 |
+| **卡片背景** | `bg-white/5` | 5% 透明度白色 |
+| **边框** | `border-white/10` | 10% 透明度白色 |
+| **发光效果** | `rgba(168, 85, 247, 0.15~0.3)` | 悬停时紫色光晕 |
+| **文字强调** | `purple-300`, `purple-400` | 悬停高亮 |
+| **辅助色** | `cyan-400`, `yellow-400` | 代码片段高亮 |
+| **弱文字** | `text-white/40`, `text-white/50` | 描述、副标题 |
+
 ### 视觉参数 (Visual Specs)
 *   **背景**: 深色渐变 (`from-slate-900 via-purple-900 to-slate-900`)。
 *   **磨砂卡片**:
@@ -180,6 +194,19 @@ interface NavData {
     *   公式: `font-size: clamp(2rem, 8vw, 3rem);`
     *   移动端最小 32px，桌面端最大 48px。
 *   **滚动优化**: 修复了背景层级导致的滚动黑屏问题。
+
+#### 4. SpotlightCard 聚光灯效果 (Spotlight Effect)
+实现了三层视觉效果的卡片悬停动画：
+
+| 层级 | 实现方式 | 效果 |
+|------|----------|------|
+| **内部光斑** | `radial-gradient` overlay | 鼠标位置跟随的柔和白色光晕 |
+| **边框发光** | `::after` 伪元素 | 紫色渐变光晕，继承圆角 |
+| **阴影发光** | `box-shadow` | 卡片底部紫色扩散阴影 |
+
+*   **CSS 变量**: `--mouse-x`, `--mouse-y` 存储鼠标相对位置。
+*   **边框发光**: 使用 `::after` 而非 `border`，确保渐变完美继承 `border-radius`。
+*   **阴影参数**: `0 10px 40px -10px rgba(168, 85, 247, 0.3)`。
 
 
 
